@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
 const Home = () => {
   const [step1, setStep1] = useState(false);
@@ -14,7 +13,7 @@ const Home = () => {
   // STEP 1
   const [authURL, setAuthURL] = useState('');
   const [tokenURL, setTokenURL] = useState('');
-  const [authorizationURL, setAuthorizationURL] = useState('')
+  const [authorizationURL, setAuthorizationURL] = useState('');
 
   async function fetchMetadata() {
     try {
@@ -27,13 +26,15 @@ const Home = () => {
       setAuthURL(json.rest[0].security.extension[0].extension[0].valueUri);
       setTokenURL(json.rest[0].security.extension[0].extension[1].valueUri);
       setStep1(true);
-      fetchCode()
     } catch (error) {}
   }
 
-  function fetchCode() {
-    setAuthorizationURL(`${authURL}?response_type=code&client_id=${clientId}&redirect_uri=${redirectUrl}&scope=${scope}&aud=${fhirendpoint}`)
-  }
+  const FrameURL = () => {
+    setAuthorizationURL(
+      `${authURL}?response_type=code&client_id=${clientId}&redirect_uri=${redirectUrl}&scope=${scope}&aud=${fhirendpoint}`
+    );
+    setStep2(true);
+  };
 
   return (
     <div>
@@ -78,20 +79,36 @@ const Home = () => {
         <br></br>
 
         {step1 ? (
-            <input type="submit" value="STEP 1 - Completed" />
+          <div>
+            {/* <input type="submit" value="STEP 1 - Completed" /> */}
+            <br></br>
+            <input type="submit" value="STEP 2" onClick={FrameURL}></input>
+          </div>
+        ) : step2 ? (
+          <div>
+            {/* <input type="submit" value="STEP 1 - Completed" />
+            <br></br>
+            <input type="submit" value="STEP 2 - Completed" /> */}
+          </div>
         ) : (
           <input type="submit" value="STEP 1" onClick={fetchMetadata} />
         )}
 
         <hr></hr>
       </form>
+
       <br></br>
       {authURL}
+
       <br></br>
       {tokenURL}
+
       <br></br>
       <br></br>
-        <a href={authorizationURL}>{authorizationURL}</a>
+      <a href={authorizationURL}>{authorizationURL}</a>
+
+      {step1}
+      {step2}
 
       {/* {step1 ? (
           <input type="submit" value="STEP 1 - Completed" />
