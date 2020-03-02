@@ -1,12 +1,15 @@
 import React from 'react'
 import Home from './Home'
-import Header from './Header'
-import Main from './Main'
+import Welcome from './Welcome'
+import Form from './Form'
+import FHIRurl from './FHIRurl'
+
 
 const App = () => (
   <div>
-    {/* <Header />
-    <Main /> */}
+    <Form></Form>
+    <hr></hr>
+    <FHIRurl FHIRurl='testing'></FHIRurl>
     <Home></Home>
   </div>
 )
