@@ -7,9 +7,9 @@ import FHIRurl from './FHIRurl'
 
 const App = () => (
   <div>
-    <Form></Form>
+    {/* <Form></Form>
     <hr></hr>
-    <FHIRurl FHIRurl='testing'></FHIRurl>
+    <FHIRurl FHIRurl='testing'></FHIRurl> */}
     <Home></Home>
   </div>
 )
