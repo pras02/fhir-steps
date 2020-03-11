@@ -15,7 +15,7 @@ const Home = () => {
   const [resource, setResource] = useState([]);
 
   const parm1 = 'response_type=code';
-  const parm2 = 'client_id=id123';
+  const parm2 = 'client_id=83d9b55b-374b-4de1-91b7-781f2f5ba45a';
   const parm3 = 'redirect_uri=http://localhost:3000/Home';
   const parm4 =
     'scope=launch launch/patient patient/read offline_access openid fhirUser';
@@ -106,6 +106,7 @@ const Home = () => {
     } else {
       return 'waiting for access token';
     }
+  }
 
     const handleRESclick = () => {
       async function RESclick() {
