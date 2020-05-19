@@ -16,7 +16,7 @@ const Home = () => {
 
   const parm1 = 'response_type=code';
   const parm2 = 'client_id=83d9b55b-374b-4de1-91b7-781f2f5ba45a';
-  const parm3 = 'redirect_uri=http://localhost:3000/Home';
+  const parm3 = 'redirect_uri=https://infallible-shirley-20dfd5.netlify.app/Home';
   const parm4 =
     'scope=launch launch/patient patient/read offline_access openid fhirUser';
 
